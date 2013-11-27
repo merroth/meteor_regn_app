@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>meteor regn</title>
+    </head>
+    <body onload='console.log("loaded");'>
+        <div class="app">
+           <canvas  height="470" width="720" id="mycanvas" style='background-image:"img/bg.jpg"; cursor:none;' onClick="copyToClipboard(this)"></canvas>
+           <!--<canvas height="470" width="720" id="mycanvas" style='background-image:"img/bg.jpg"; cursor:none;' onClick="copyToClipboard(this)"></canvas>-->
+           <p style="float:right;" id="link">Tomt Link</p>
+        </div>
+        <script type="text/javascript" src="phonegap.js"></script>
+        
+		<script type="text/javascript">var test = false, device = 'phone';</script><!-- Her er min egen Javascript-->
+		<script type="text/javascript" src="js/mouse.js"></script><!-- Her er min egen Javascript-->
+        <script type="text/javascript" src="js/variables.js"></script><!-- Her er min egen Javascript-->
+        <script type="text/javascript" src="js/meteor_class.js"></script><!-- Her er min egen Javascript-->
+        <script type="text/javascript" src="js/super_meteor_class.js"></script><!-- Her er min egen Javascript-->
+        <script type="text/javascript" src="js/player_class.js"></script><!-- Her er min egen Javascript-->
+        <script type="text/javascript" src="js/instantiation.js"></script><!-- Her er min egen Javascript-->
+        <script type="text/javascript" src="js/draw.js"></script><!-- Her er min egen Javascript-->
+        <script type="text/javascript" src="js/simulate.js"></script><!-- Her er min egen Javascript-->
+        <script type="text/javascript" src="js/clock.js"></script><!-- Her er min egen Javascript-->
+        <script type="text/javascript" src="js/clipboard.js"></script><!-- Her er min egen Javascript-->
+        <script type="text/javascript" src="js/UI.js"></script><!-- Her er min egen Javascript-->
+        <script type="text/javascript">
+		function onResizeHandler(e)
+		{
+			setSize();
+		}
+		function setSize()
+		{
+			document.getElementById('mycanvas').width = window.innerWidth;
+			document.getElementById('mycanvas').height = window.innerHeight - 50;
+			framex = document.getElementById('mycanvas').clientWidth;
+			framey = document.getElementById('mycanvas').clientHeight;
+			if(player)
+			{
+				player.y = framey - 20;
+			}		
+		}
+		window.onresize = onResizeHandler;
+		setSize();
+		
+setTimeout(function()
+{
+	alert("Velkommen til Meteor Regn!\n\nI dette spil gælder det om at undgå at få en brændende sten i knolden.\n\nDu styrer spilleren ved at klikke på skærmen.");
+},100);
+		
+        </script><!-- Her er min egen Javascript-->
+        
+    </body>
+</html>
