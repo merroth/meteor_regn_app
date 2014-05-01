@@ -7,12 +7,19 @@ function instantiateMeteor() {
 	if (t != "" && meteorarray.length >= -1 && meteorarray.length <= level) {
 		for (i = 0; i < t; i++)
 		{
-			if(Math.round(Math.random() * 9) < 9)
+			var switchstatement = Math.round(Math.random() * 25)
+
+
+
+
+
+
+			switch(true)
 			{
-				meteorarray.push(new meteor);
-			}else
-			{
-				meteorarray.push(new super_meteor);
+				case (switchstatement <= 15): meteorarray.push(new cold_meteor);break;
+				case (switchstatement >= 15 && switchstatement <= 18): meteorarray.push(new super_meteor);break;
+
+				default: meteorarray.push(new meteor);break;
 			}
 		}
 	}
