@@ -2,9 +2,10 @@ var meteor = function ()
 {
 	var content = 
 	{
+		type : "meteor",
 		y : -30,
 		age : 0,
-		size : 40,
+		size : 30,
 		angle : angle = (45 % 360),
 		color : "cyan",
 		startup : true,
@@ -16,7 +17,7 @@ var meteor = function ()
 				this.startup = false;
 			}
 		},
-		boundaries : function ()
+		boundaries : function (i)
 		{
 			if (asteroid.x < asteroid.size && asteroid.xSpeed < 0 || asteroid.x > framex - asteroid.size && asteroid.xSpeed > 0) {
 				asteroid.xSpeed *= (0 - 1);
@@ -53,7 +54,9 @@ var meteor = function ()
 			if (this.size < 13) {
 				meteorarray.splice(i, 1);
 			}
-		}
+
+		},
+		lingrad : [[0, "#636651"], [((Math.random() * 1 + 5) * 0.1), "red"], [1, "yellow"]]
 	}
 	content.xSpeed = Math.round(Math.random() * 2 - 1),
 	content.ySpeed = Math.round(Math.random() * 5),
