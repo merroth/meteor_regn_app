@@ -33,7 +33,19 @@ function draw()
 		temp = new Date();
 		for (var i = 0; i < meteorarray.length; i++) {
 			asteroid = meteorarray[i];
-			c.fillStyle = lingrad;
+			if(asteroid.lingrad == null)
+			{
+				//alert("yellow");
+				c.fillStyle = "#FFFA00";
+			}else
+			{
+				for(var lin in asteroid.lingrad)
+				{
+					lingradtemp = asteroid.lingrad[lin];
+					lingrad.addColorStop(lingradtemp[0], lingradtemp[1]);
+				}
+				c.fillStyle = lingrad;
+			}
 			asteroid.rotate();
 			//c.fillRect(asteroid.x - asteroid.size * 0.5, asteroid.y - asteroid.size * 0.5, asteroid.size, asteroid.size);
 			c.beginPath();c.arc(asteroid.x, asteroid.y, asteroid.size, 0, Math.PI*2, true);c.fill();c.closePath();
@@ -49,6 +61,7 @@ function draw()
 			c.font = "bold 30px Arial";
 			c.fillText("DIN TID VAR: " +str+ " OG DU NÅEDE LEVEL: " + (level + 1), framex/2 - 350, framey * 0.5 + 50);
 		}
+		lingrad = c.createLinearGradient(0, 0, 0, framey);
 		framebuffer = temp - new Date();
 	}
 }
