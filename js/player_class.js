@@ -1,4 +1,4 @@
-var main_char = function () {};
+var main_char = function(){};
 main_char.prototype = {
 	x : 400,
 	y : framey - 20,
@@ -26,9 +26,9 @@ main_char.prototype = {
 	collide : function (collidearray) {
 		for (var i = 0; i < meteorarray.length; i++) {
 			asteroid = meteorarray[i];
-			if (asteroid.y+asteroid.size > framey - this.size && player)
+			if (asteroid.y+asteroid.size > framey - this.size && player)//y
 			{
-				if (Math.round(asteroid.x+asteroid.size) > Math.round(this.x) && Math.round(asteroid.x) < Math.round(this.x+(2*this.size)))
+				if (!test && Math.round(asteroid.x+asteroid.size) > Math.round(this.x) && Math.round(asteroid.x) < Math.round(this.x+(2*this.size)))//left
 				{
 					player = null;
 				}
