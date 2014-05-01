@@ -12,7 +12,7 @@ function simulate()
 			asteroid.startupfunc();
 			asteroid.xSpeed += (Math.random() * 2 - 1) * 0.33;
 			asteroid.age++;
-			asteroid.boundaries();
+			asteroid.boundaries(i);
 			asteroid.friction();
 			asteroid.decay(i);
 			asteroid.gravity();
